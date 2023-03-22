@@ -47,6 +47,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
     int maloai;
     int mamon = 0;
 
+    // mở một Intent để chọn một tập tin hình ảnh từ ổ đĩa hoặc bộ nhớ của thiết bị, và sau đó hiển thị hình ảnh đã chọn trong một đối tượng ImageView trên giao diện người dùng
     ActivityResultLauncher<Intent> resultLauncherOpenIMG = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -65,6 +66,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
             });
 
 
+    //khởi tạo và thiết lập các thành phần giao diện người dùng (UI) trong Activity của ứng dụng
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,6 +123,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         IMG_addmenu_back.setOnClickListener(this);
     }
 
+    // xử lý sự kiện khi người dùng tương tác với giao diện của ứng dụng
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -176,6 +179,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    // chuyển đổi hình ảnh từ ImageView sang định dạng byte
     private byte[] imageViewtoByte(ImageView imageView){
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -184,6 +188,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         return byteArray;
     }
 
+    // validate hình ảnh
     private boolean validateImage(){
         BitmapDrawable drawable = (BitmapDrawable)IMG_addmenu_ThemHinh.getDrawable();
         Bitmap bitmap = drawable.getBitmap();
@@ -196,6 +201,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    // validate tên
     private boolean validateName(){
         String val = TXTL_addmenu_TenMon.getEditText().getText().toString().trim();
         if(val.isEmpty()){
@@ -208,6 +214,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    // validate giá
     private boolean validatePrice(){
         String val = TXTL_addmenu_GiaTien.getEditText().getText().toString().trim();
         if(val.isEmpty()){
