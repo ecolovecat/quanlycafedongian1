@@ -139,6 +139,7 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
+    // chuyển đổi hình ảnh từ ImageView sang định dạng byte
     private byte[] imageViewtoByte(ImageView imageView){
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -160,6 +161,7 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
+    // validate tên
     private boolean validateName(){
         String val = TXTL_addcategory_TenLoai.getEditText().getText().toString().trim();
         if(val.isEmpty()){
