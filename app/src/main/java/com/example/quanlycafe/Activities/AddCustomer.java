@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 
 public class AddCustomer extends AppCompatActivity implements View.OnClickListener{
 
+    // regex cho password
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
                     //"(?=.*[@#$%^&+=])" +
@@ -39,6 +40,7 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
     int makh = 0;
     long ktra = 0;
 
+    // khởi tạo thông tin trang hiển thị
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,6 +135,7 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    // kiểm tra tên hợp lệ
     private boolean validateFullName(){
         String val = txtl_HoVaTen.getEditText().getText().toString().trim();
 
@@ -146,6 +149,7 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    // kiểm tra email hợp lệ
     private boolean validateEmail(){
         String val = txtl_Email.getEditText().getText().toString().trim();
         String checkspaces = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";
@@ -164,6 +168,7 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    // kiểm tra số điện thoại hợp lệ
     private boolean validatePhone(){
         String val = txtl_SDT.getEditText().getText().toString().trim();
 
@@ -184,6 +189,7 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
 
 
 
+    // kiểm tra giới tính hợp lệ
     private boolean validateGender(){
         if(rg_GioiTinh.getCheckedRadioButtonId() == -1){
             Toast.makeText(this,"Hãy chọn giới tính",Toast.LENGTH_SHORT).show();
